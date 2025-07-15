@@ -1,7 +1,16 @@
 import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
-  return <h1>Vite + React</h1>;
+  return (
+    <BrowserRouter>
+      <MainLayout>
+        <AppRoutes />
+      </MainLayout>
+    </BrowserRouter>
+  );
 }
 
 export default App;
