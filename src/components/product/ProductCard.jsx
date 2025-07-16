@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import { Heart } from "lucide-react";
+import ProductModal from "./ProductModal";
 
 export default function ProductCard({ product, onFavorite }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="border rounded-lg shadow p-4">
       <img
@@ -16,11 +20,13 @@ export default function ProductCard({ product, onFavorite }) {
       </p>
 
       <div className="flex justify-between items-center mt-4">
-        <Button>Xem chi tiết</Button>
+        <Button onClick={() => setOpen(true)}>Xem chi tiết</Button>
         <Button variant="ghost" onClick={() => onFavorite(product)}>
           <Heart className="text-red-500" size={20} />
         </Button>
       </div>
+
+      <ProductModal product={product} open={open} setOpen={setOpen} />
     </div>
   );
 }
