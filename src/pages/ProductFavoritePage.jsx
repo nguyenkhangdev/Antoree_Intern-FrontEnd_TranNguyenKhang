@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 export default function ProductFavoritePage() {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loadingData, setLoadingData] = useState(true);
 
   const fetchFavorites = async () => {
     ProductService.get({ favorite: true })
@@ -16,7 +16,7 @@ export default function ProductFavoritePage() {
         toast.error("Lỗi khi lấy danh sách yêu thích.");
       })
       .finally(() => {
-        setLoading(false);
+        setLoadingData(false);
       });
   };
 
@@ -24,17 +24,6 @@ export default function ProductFavoritePage() {
     fetchFavorites();
   }, []);
 
-  if (loading) {
-    return <p className="text-center mt-10">Đang tải danh sách yêu thích...</p>;
-  }
-
-  if (products.length === 0) {
-    return (
-      <p className="text-center mt-10 text-gray-500">
-        Bạn chưa thích sản phẩm nào.
-      </p>
-    );
-  }
 
   return (
     <div className="max-w-[1100px] mx-auto p-6">
@@ -43,6 +32,7 @@ export default function ProductFavoritePage() {
         products={products}
         setProducts={setProducts}
         fetchNewData={fetchFavorites}
+        loadingData={loadingData}
       />
     </div>
   );

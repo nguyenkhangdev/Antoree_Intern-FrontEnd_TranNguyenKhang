@@ -11,8 +11,10 @@ export default function ProductPage() {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState({ searchTerm: "", priceRange: "" });
+  const [loadingData, setLoadingData] = useState(true);
 
   const fetchData = async () => {
+    setLoadingData(true);
     //1 các khác là truyền filter vào params url, nhưng diều này
     //sẽ khiến client gọi api nhiều lần, gây tốn tài nguyên BE và mất thời gian phản hồi
     //làm người dùng đợi
@@ -24,6 +26,9 @@ export default function ProductPage() {
       })
       .catch(() => {
         toast.error("Tìm kiếm sản phẩm thất bại");
+      })
+      .finally(() => {
+        setLoadingData(false);
       });
   };
 
@@ -47,13 +52,17 @@ export default function ProductPage() {
   });
 
   return (
-    <div >
+    <div>
       <ProductFilter
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         onFilterChange={setFilter}
       />
-      <ProductsList products={filteredProducts} setProducts={setProducts} />
+      <ProductsList
+        products={filteredProducts}
+        setProducts={setProducts}
+        loadingData={loadingData}
+      />
       <ProductSuggestion />
     </div>
   );

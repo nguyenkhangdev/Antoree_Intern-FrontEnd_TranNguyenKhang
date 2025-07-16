@@ -6,8 +6,13 @@ import { Link } from "react-router-dom";
 
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { SkeletonCard } from "../SkeletonCard";
 
-export default function ProductsSuggetionList({ products, setProducts }) {
+export default function ProductsSuggetionList({
+  products,
+  setProducts,
+  loadingData,
+}) {
   const [loadingFavoriteButton, setLoadingFavoriteButton] = useState(false);
 
   // embla-carousel autoplay
@@ -61,23 +66,23 @@ export default function ProductsSuggetionList({ products, setProducts }) {
       });
   };
 
-  if (products.length === 0) {
-    return (
-      <p className="text-center mt-8 text-gray-600">
-        Không tìm thấy sản phẩm nào phù hợp.
-      </p>
-    );
-  }
-
   return (
     // gán emblaRef vào danh sách sản phẩm để có thể thể điều khiển nó như một carousel
     <div className="overflow-hidden" ref={emblaRef}>
       <div className="flex gap-6">
-        {products.map((product) => (
-          <div className="w-sm flex-shrink-0" key={product.id}>
-            <ProductCard product={product} onFavorite={handleFavorite} />
-          </div>
-        ))}
+        {loadingData ? (
+          [1, 2, 3].map((index) => <SkeletonCard key={index} />)
+        ) : products.length === 0 ? (
+          <p className="text-center mt-8 text-gray-600">
+            Không tìm thấy sản phẩm nào phù hợp.
+          </p>
+        ) : (
+          products.map((product) => (
+            <div className="w-sm flex-shrink-0" key={product.id}>
+              <ProductCard product={product} onFavorite={handleFavorite} />
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

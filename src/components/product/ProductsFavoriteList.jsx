@@ -2,18 +2,16 @@ import ProductFavoriteCard from "./ProductFavoriteCard";
 import { toast } from "react-toastify";
 import api from "../../services/axios";
 import { useState } from "react";
+import { SkeletonCard } from "../SkeletonCard";
 
-export default function ProductsFavoriteList({ products, setProducts }) {
+export default function ProductsFavoriteList({
+  products,
+  setProducts,
+  loadingData,
+}) {
   //biến loading để tránh spam handleFavorite
   const [loadingFavoriteButton, setLoadingFavoriteButton] = useState(false);
 
-  if (products.length === 0) {
-    return (
-      <p className="text-center mt-8 text-gray-600">
-        Không có sản phẩm yêu thích nào.
-      </p>
-    );
-  }
   const handleFavorite = async (product) => {
     if (loadingFavoriteButton) return;
     setLoadingFavoriteButton(true);
@@ -40,13 +38,21 @@ export default function ProductsFavoriteList({ products, setProducts }) {
 
   return (
     <div className="p-4 max-w-4xl mx-auto space-y-4">
-      {products.map((product) => (
-        <ProductFavoriteCard
-          key={product.id}
-          product={product}
-          onFavorite={handleFavorite}
-        />
-      ))}
+      {loadingData ? (
+        [1].map((index) => <SkeletonCard key={index} />)
+      ) : products.length === 0 ? (
+        <p className="text-center mt-8 text-gray-600">
+          Bạn chưa thích sản phẩm nào.
+        </p>
+      ) : (
+        products.map((product) => (
+          <ProductFavoriteCard
+            key={product.id}
+            product={product}
+            onFavorite={handleFavorite}
+          />
+        ))
+      )}
     </div>
   );
 }

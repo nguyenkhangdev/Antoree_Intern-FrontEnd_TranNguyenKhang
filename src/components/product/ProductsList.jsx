@@ -3,18 +3,12 @@ import api from "../../services/axios";
 import ProductCard from "./ProductCard";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { SkeletonCard } from "../SkeletonCard";
 
-export default function ProductsList({ products, setProducts }) {
+export default function ProductsList({ products, setProducts, loadingData }) {
   //biến loading để tránh spam handleFavorite
   const [loadingFavoriteButton, setLoadingFavoriteButton] = useState(false);
 
-  if (products.length === 0) {
-    return (
-      <p className="text-center mt-8 text-gray-600">
-        Không tìm thấy sản phẩm nào phù hợp.
-      </p>
-    );
-  }
   const handleFavorite = async (product) => {
     if (loadingFavoriteButton) return;
     setLoadingFavoriteButton(true);
@@ -59,15 +53,27 @@ export default function ProductsList({ products, setProducts }) {
         setLoadingFavoriteButton(false);
       });
   };
+  //3 trạng thái của danh sách sản phẩm
+ //hiện Skeleton Card khi dữ liệu đang load
+ //khi danh sách không có hoặc lỗi thì hiện "Không tìm thấy sản phẩm nào phù hợp"
+ //hiện danh sách bình thường nếu
   return (
     <div className="max-w-[1100px] mx-auto p-6 pt-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          onFavorite={handleFavorite}
-        />
-      ))}
+      {loadingData ? (
+        [1, 2, 3].map((index) => <SkeletonCard key={index} />)
+      ) : products.length === 0 ? (
+        <p className="text-center mt-8 text-gray-600">
+          Không tìm thấy sản phẩm nào phù hợp.
+        </p>
+      ) : (
+        products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onFavorite={handleFavorite}
+          />
+        ))
+      )}
     </div>
   );
 }
