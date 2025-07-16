@@ -19,14 +19,20 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex gap-6 ml-5">
-            <Link to="/" className="font-semibold hover:text-green-500">
-              Giáo viên
-            </Link>
             <Link to="/san-pham" className="font-semibold hover:text-green-500">
               Sản phẩm
             </Link>
-            <Link to="/#" className="font-semibold hover:text-green-500">
-              Đánh giá của học viên
+            <Link
+              to="/san-pham/yeu-thich"
+              className="font-semibold hover:text-green-500"
+            >
+              Yêu thích
+            </Link>
+            <Link
+              to="/san-pham/da-xem"
+              className="font-semibold hover:text-green-500"
+            >
+              Đã xem
             </Link>
             <HoverDropdown />
           </nav>

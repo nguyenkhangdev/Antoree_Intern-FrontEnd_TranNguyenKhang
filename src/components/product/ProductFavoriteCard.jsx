@@ -3,7 +3,7 @@ import { Heart } from "lucide-react";
 
 export default function ProductFavoriteCard({ product, onFavorite }) {
   return (
-    <div className="flex flex-col md:flex-row items-start gap-4 border rounded-lg p-4 bg-white shadow hover:shadow-md transition w-full">
+    <div className="flex flex-col md:flex-row items-start gap-4 border rounded-lg p-4 bg-white shadow hover:shadow-md w-full transition-transform hover:scale-105">
       <img
         src={product.image}
         alt={product.name}

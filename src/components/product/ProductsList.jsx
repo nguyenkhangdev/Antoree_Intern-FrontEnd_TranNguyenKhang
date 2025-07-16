@@ -54,9 +54,9 @@ export default function ProductsList({ products, setProducts, loadingData }) {
       });
   };
   //3 trạng thái của danh sách sản phẩm
- //hiện Skeleton Card khi dữ liệu đang load
- //khi danh sách không có hoặc lỗi thì hiện "Không tìm thấy sản phẩm nào phù hợp"
- //hiện danh sách bình thường nếu
+  //hiện Skeleton Card khi dữ liệu đang load
+  //khi danh sách không có hoặc lỗi thì hiện "Không tìm thấy sản phẩm nào phù hợp"
+  //hiện danh sách bình thường nếu
   return (
     <div className="max-w-[1100px] mx-auto p-6 pt-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       {loadingData ? (

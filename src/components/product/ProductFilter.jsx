@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Search, X } from "lucide-react";
 import Banner from "../../assets/banner.jpg";
 import DropdownProps from "../DropdownProps";
-import ProductSuggestion from "./ProductSuggestion";
 
 export default function ProductFilter({
   searchTerm,

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import ViewedService from "../../services/ViewedService";
+import { SkeletonCard } from "../SkeletonCard";
 
 export default function ProductViewed() {
   const [viewedProducts, setViewedProducts] = useState([]);

@@ -12,7 +12,7 @@ export default function ProductCard({ product, onFavorite }) {
   };
   return (
     <div
-      className="border rounded-lg shadow p-4 cursor-pointer"
+      className="border rounded-lg shadow p-4 cursor-pointer transition-transform hover:scale-105"
       onClick={handleClick}
     >
       <img
