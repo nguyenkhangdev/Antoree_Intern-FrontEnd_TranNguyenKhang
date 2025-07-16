@@ -32,15 +32,17 @@ export default function Header() {
           </nav>
         </div>
 
-        {/* Call to Action */}
-        <div className="hidden lg:flex flex-row items-center gap-2">
-          <Button className="bg-orange-600">Học thử MIỄN PHÍ ngay</Button>
-          <SelectLanguage />
+        <div className="flex flex-row items-center">
+          {/* Call to Action */}
+          <div className="hidden lg:flex flex-row items-center gap-2">
+            <Button className="bg-orange-600">Học thử MIỄN PHÍ ngay</Button>
+            <SelectLanguage />
+          </div>
           <UserDropdown />
-        </div>
 
-        {/* Mobile menu button */}
-        <SiderBar />
+          {/* Mobile menu button */}
+          <SiderBar />
+        </div>
       </div>
     </header>
   );

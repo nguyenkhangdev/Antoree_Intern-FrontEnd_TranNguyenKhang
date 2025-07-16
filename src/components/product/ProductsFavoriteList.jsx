@@ -1,6 +1,6 @@
 import ProductFavoriteCard from "./ProductFavoriteCard";
 import { toast } from "react-toastify";
-import api from "../../services/api";
+import api from "../../services/axios";
 import { useState } from "react";
 
 export default function ProductsFavoriteList({ products, setProducts }) {

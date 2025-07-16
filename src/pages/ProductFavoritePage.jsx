@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
-import api from "../services/api";
 import ProductsFavoriteList from "../components/product/ProductsFavoriteList";
+import ProductService from "../services/ProductService";
+import { toast } from "react-toastify";
 
 export default function ProductFavoritePage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchFavorites = async () => {
-    try {
-      const res = await api.get("/products?favorite=true");
-      setProducts(res.data);
-    } catch (error) {
-      console.error("Lỗi khi lấy danh sách yêu thích:", error);
-    } finally {
-      setLoading(false);
-    }
+    ProductService.get({ favorite: true })
+      .then((res) => {
+        setProducts(res.data);
+      })
+      .catch(() => {
+        toast.error("Lỗi khi lấy danh sách yêu thích.");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
+
   useEffect(() => {
     fetchFavorites();
   }, []);
