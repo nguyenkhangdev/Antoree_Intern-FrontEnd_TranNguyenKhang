@@ -5,6 +5,7 @@ import ProductFilter from "../components/product/ProductFilter";
 
 import { toast } from "react-toastify";
 import ProductService from "../services/ProductService";
+import ProductSuggestion from "../components/product/ProductSuggestion";
 
 export default function ProductPage() {
   const [products, setProducts] = useState([]);
@@ -46,13 +47,14 @@ export default function ProductPage() {
   });
 
   return (
-    <div>
+    <div >
       <ProductFilter
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         onFilterChange={setFilter}
       />
       <ProductsList products={filteredProducts} setProducts={setProducts} />
+      <ProductSuggestion />
     </div>
   );
 }

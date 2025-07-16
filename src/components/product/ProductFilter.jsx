@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Search, X } from "lucide-react";
 import Banner from "../../assets/banner.jpg";
 import DropdownProps from "../DropdownProps";
+import ProductSuggestion from "./ProductSuggestion";
 
 export default function ProductFilter({
   searchTerm,
@@ -96,7 +97,7 @@ export default function ProductFilter({
       </div>
 
       {/* Trạng thái filter */}
-      <div className="relative z-10 my-10 flex justify-center">
+      <div className="relative max-w-[1050px] mx-auto px-4 z-10 my-10 flex md:flex-row flex-col gap-3 md:gap-1 justify-center">
         <div className="w-[90%] max-w-5xl flex items-center gap-2 text-sm md:text-base text-gray-900 flex-wrap">
           <span className="font-semibold uppercase text-sm text-black">
             TÌM KIẾM HIỆN TẠI:
@@ -145,6 +146,12 @@ export default function ProductFilter({
             Xóa bộ lọc
           </button>
         </div>
+        <a
+          href="#product-suggestion"
+          className="bg-green-500 hover:bg-green-600 py-2 px-3 whitespace-nowrap rounded-full text-sm md:text-base w-fit"
+        >
+          Gợi ý sản phẩm
+        </a>
       </div>
     </section>
   );
