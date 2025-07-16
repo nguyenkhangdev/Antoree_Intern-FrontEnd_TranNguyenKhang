@@ -2,6 +2,7 @@ import { toast } from "react-toastify";
 import api from "../../services/api";
 import ProductCard from "./ProductCard";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function ProductsList({ products, setProducts }) {
   //biến loading để tránh spam handleFavorite
@@ -22,9 +23,29 @@ export default function ProductsList({ products, setProducts }) {
       .then((res) => {
         const updated = res.data;
         if (updated.favorite === true) {
-          toast.success("Đã thêm sản phẩm vào yêu thích.");
+          toast.success(
+            <div>
+              Đã thêm sản phẩm vào yêu thích.{" "}
+              <Link
+                to="/san-pham/yeu-thich"
+                className="underline text-blue-500 hover:text-blue-700"
+              >
+                Xem danh sách
+              </Link>
+            </div>
+          );
         } else {
-          toast.success("Đã loại sản phẩm khỏi yêu thích.");
+          toast.success(
+            <div>
+              Đã loại sản phẩm khỏi yêu thích.{" "}
+              <Link
+                to="/san-pham/yeu-thich"
+                className="underline text-blue-500 hover:text-blue-700"
+              >
+                Xem danh sách
+              </Link>
+            </div>
+          );
         }
         // Cập nhật danh sách products
         setProducts((prev) =>

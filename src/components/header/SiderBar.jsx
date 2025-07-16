@@ -41,7 +41,7 @@ export default function SiderBar() {
               Giáo viên
             </Link>
             <Link
-              to="/#"
+              to="/san-pham"
               onClick={() => setOpen(false)}
               className="font-semibold"
             >
