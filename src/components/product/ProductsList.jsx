@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import api from "../../services/api";
+import api from "../../services/axios";
 import ProductCard from "./ProductCard";
 import { useState } from "react";
 import { Link } from "react-router-dom";

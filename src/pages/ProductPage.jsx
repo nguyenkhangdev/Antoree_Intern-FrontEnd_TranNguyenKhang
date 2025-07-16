@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 
 import ProductsList from "../components/product/ProductsList";
 import ProductFilter from "../components/product/ProductFilter";
-import api from "../services/api";
+
 import { toast } from "react-toastify";
+import ProductService from "../services/ProductService";
 
 export default function ProductPage() {
   const [products, setProducts] = useState([]);
@@ -16,8 +17,7 @@ export default function ProductPage() {
     //làm người dùng đợi
     // nhưng có dữ liệu danh sách sản phẩm mới nhất nếu có thay đổi (trường hợp này ít xảy ra)
     //hiện tại toi chọn lọc ở Frontend do API không hỗ trợ
-    await api
-      .get("/products") //nếu api hỗ trợ thì truyền thêm {params:{searchTerm,category,page, limits..}}
+    ProductService.get() //nếu api hỗ trợ thì truyền thêm {params:{searchTerm,category,page, limits..}}
       .then((res) => {
         setProducts(res.data);
       })
