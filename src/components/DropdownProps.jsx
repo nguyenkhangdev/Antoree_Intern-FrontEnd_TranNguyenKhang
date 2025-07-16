@@ -23,7 +23,7 @@ export default function DropdownProps({ label, items, onSelect }) {
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
-          className="text-gray-700 bg-white border rounded px-4 py-2 md:px-8 md:py-4 flex items-center gap-1 text-sm md:text-base hover:bg-gray-100"
+          className="w-full h-full text-gray-700 bg-white border rounded px-4 py-2 md:px-8 md:py-4 flex items-center gap-1 text-sm md:text-base hover:bg-gray-100"
         >
           {selected || label}
           <ChevronDown className="h-4 w-4 text-gray-500" />
