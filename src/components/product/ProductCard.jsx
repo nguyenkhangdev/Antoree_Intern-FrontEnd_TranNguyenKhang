@@ -22,7 +22,11 @@ export default function ProductCard({ product, onFavorite }) {
       <div className="flex justify-between items-center mt-4">
         <Button onClick={() => setOpen(true)}>Xem chi tiết</Button>
         <Button variant="ghost" onClick={() => onFavorite(product)}>
-          <Heart className="text-red-500" size={20} />
+          <Heart
+            className="text-red-500 h-6! w-6!"
+            fill={product.favorite ? "red" : "none"}
+            color="red"
+          />
         </Button>
       </div>
 
