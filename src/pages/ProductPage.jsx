@@ -4,7 +4,6 @@ import ProductsList from "../components/product/ProductsList";
 import ProductFilter from "../components/product/ProductFilter";
 import api from "../services/api";
 
-
 export default function ProductPage() {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -50,7 +49,7 @@ export default function ProductPage() {
         setSearchTerm={setSearchTerm}
         onFilterChange={setFilter}
       />
-      <ProductsList products={filteredProducts} />
+      <ProductsList products={filteredProducts} setProducts={setProducts} />
     </div>
   );
 }
