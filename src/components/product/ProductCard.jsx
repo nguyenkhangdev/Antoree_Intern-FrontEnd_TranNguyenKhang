@@ -2,12 +2,19 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Heart } from "lucide-react";
 import ProductModal from "./ProductModal";
+import ViewedService from "../../services/ViewedService";
 
 export default function ProductCard({ product, onFavorite }) {
   const [open, setOpen] = useState(false);
 
+  const handleClick = () => {
+    ViewedService.post(product);
+  };
   return (
-    <div className="border rounded-lg shadow p-4">
+    <div
+      className="border rounded-lg shadow p-4 cursor-pointer"
+      onClick={handleClick}
+    >
       <img
         src={product.image}
         alt={product.name}
