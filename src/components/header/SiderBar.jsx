@@ -45,7 +45,7 @@ export default function SiderBar() {
               onClick={() => setOpen(false)}
               className="font-semibold"
             >
-              Cộng đồng
+              Sản phẩm
             </Link>
             <Link
               to="/#"

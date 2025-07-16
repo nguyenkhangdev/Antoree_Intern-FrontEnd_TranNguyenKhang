@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 
 import { Link } from "react-router-dom";
@@ -23,10 +21,10 @@ export default function Header() {
             <Link to="/" className="font-semibold hover:text-green-500">
               Giáo viên
             </Link>
-            <Link to="/about" className="font-semibold hover:text-green-500">
-              Cộng đồng
+            <Link to="/san-pham" className="font-semibold hover:text-green-500">
+              Sản phẩm
             </Link>
-            <Link to="/contact" className="font-semibold hover:text-green-500">
+            <Link to="/#" className="font-semibold hover:text-green-500">
               Đánh giá của học viên
             </Link>
             <HoverDropdown />
