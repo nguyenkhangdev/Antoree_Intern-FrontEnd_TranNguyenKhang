@@ -5,6 +5,7 @@ import logo from "../assets/logo_withtagline.svg";
 import SelectLanguage from "../components/header/SelectLanguage";
 import HoverDropdown from "../components/header/HoverUserMenu";
 import SiderBar from "../components/header/SiderBar";
+import UserDropdown from "../components/header/UserDropdown";
 
 export default function Header() {
   return (
@@ -34,10 +35,8 @@ export default function Header() {
         {/* Call to Action */}
         <div className="hidden lg:flex flex-row items-center gap-2">
           <Button className="bg-orange-600">Học thử MIỄN PHÍ ngay</Button>
-          <Link to={"/sign-in"} className="font-bold hover:text-green-500">
-            Đăng nhập
-          </Link>
           <SelectLanguage />
+          <UserDropdown />
         </div>
 
         {/* Mobile menu button */}
