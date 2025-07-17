@@ -4,6 +4,8 @@ import { Star } from "lucide-react";
 import ProductService from "../services/ProductService"; // giả định đã có
 import { toast } from "react-toastify";
 import { Button } from "@/components/ui/button";
+import ProductSuggestion from "../components/product/ProductSuggestion";
+import ViewedService from "../services/ViewedService";
 
 export default function ProductDetailPage() {
   const { id } = useParams(); // ID từ URL
@@ -11,9 +13,12 @@ export default function ProductDetailPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    //load dữ liệu sản phẩm
     ProductService.getById(id)
       .then((res) => {
         setProduct(res.data);
+        //lưu sản phẩm đã xem
+        ViewedService.post(res.data);
       })
       .catch(() => {
         toast.error("Không thể tải chi tiết sản phẩm");
@@ -69,10 +74,11 @@ export default function ProductDetailPage() {
           {product.fullDescription}
         </p>
 
-        <Button className="mt-6 w-full md:w-fit px-6 py-3">
+        <Button className="mt-6 w-full md:w-fit px-6 py-3 bg-green-500 hover:bg-green-600">
           Thêm vào giỏ hàng
         </Button>
       </div>
+      <ProductSuggestion />
     </div>
   );
 }
