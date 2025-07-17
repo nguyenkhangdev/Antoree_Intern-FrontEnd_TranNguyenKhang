@@ -68,23 +68,74 @@ npm run preview
 
 ## Một số hình ảnh
 
+### Menu cho mobile
+
 ![Menu cho mobile](screenshots/menu-mobile.png)
-Trang web hỗ trợ tốt cho responsive
+
+Trang web hỗ trợ tốt cho responsive.
+
+---
+
+### Chatbox AI
+
 ![Chatbox AI](screenshots/chatbox-ai.png)
-Chức năng chat box AI: người dùng gửi yêu cầu, AI phẩn hồi laijmoo tả yêu cầu và đưa danh sách các sản phẩm phù hợp,có thể liên kết đến trang chi tiết sản phẩm.
+
+Chức năng chat box AI: người dùng gửi yêu cầu, AI phản hồi lại mô tả yêu cầu và đưa danh sách các sản phẩm phù hợp, có thể liên kết đến trang chi tiết sản phẩm.
+
+---
+
+### Trang danh sách sản phẩm
+
 ![Trang danh sách sản phẩm](screenshots/san-pham.png)
-Hỗ trợ tiềm kiếm theo các thuộc tính, từ khóa và phân trang, các thẻ sản phẩm có hỗ trợ tương tác hiệu ứng linh hoạt.
+
+Hỗ trợ tìm kiếm theo các thuộc tính, từ khóa và phân trang. Các thẻ sản phẩm có hỗ trợ tương tác hiệu ứng linh hoạt.
+
+---
+
+### Modal sản phẩm
+
 ![Modal sản phẩm](screenshots/modal-san-pham.png)
+
 Modal xem trước sản phẩm mượt mà.
-![Trang Chi chiết sản phẩm](screenshots/san-pham-chi-tiet.png)
-Hiện chi tiết các thông tin sản phẩm, có hần gợi ý sản phẩm bên dưới.
+
+---
+
+### Trang Chi tiết sản phẩm
+
+![Trang Chi tiết sản phẩm](screenshots/san-pham-chi-tiet.png)
+
+Hiển thị chi tiết các thông tin sản phẩm, có phần gợi ý sản phẩm bên dưới.
+
+---
+
+### Trang sản phẩm yêu thích
+
 ![Trang sản phẩm yêu thích](screenshots/san-pham-yeu-thich.png)
+
 Danh sách các sản phẩm yêu thích, tương tác hiệu ứng linh hoạt.
+
+---
+
+### Trang sản phẩm đã xem
+
 ![Trang sản phẩm đã xem](screenshots/san-pham-da-xem.png)
+
 Lưu các sản phẩm vừa xem, hiệu ứng giống trang danh sách sản phẩm.
+
+---
+
+### Sản phẩm gợi ý
+
 ![sản phẩm gợi ý](screenshots/san-pham-goi-y.png)
-Các sản phẩm được gợi ý được trình chiểu cuộn ngang tự động đẹp mắt
+
+Các sản phẩm được gợi ý được trình chiếu cuộn ngang tự động đẹp mắt.
+
+---
+
+### Phần chân trang - Footer
+
 ![Phần chân trang - footer](screenshots/chan-trang.png)
+
 Footer mô phỏng lại trang của quý công ty.
 
 ## Điều khoản và Bản quyền
