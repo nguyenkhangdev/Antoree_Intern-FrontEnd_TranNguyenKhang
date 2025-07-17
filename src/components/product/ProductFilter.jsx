@@ -1,40 +1,27 @@
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Search, X } from "lucide-react";
 import Banner from "../../assets/banner.jpg";
 import DropdownProps from "../DropdownProps";
 
-export default function ProductFilter({
-  searchTerm,
-  setSearchTerm,
-  onFilterChange,
-}) {
-  const [priceRange, setPriceRange] = useState("");
-  const [category, setCategory] = useState("");
+export default function ProductFilter({ filter, setFilter }) {
+  // const handlePriceChange = (selected) => {
+  //   setPriceRange(selected);
+  // };
 
-  // Gọi khi filter thay đổi
-  useEffect(() => {
-    onFilterChange({ searchTerm, category, priceRange });
-  }, [searchTerm, category, priceRange, onFilterChange]);
-
-  const handleCategory = (selected) => {
-    setCategory(selected);
-  };
-
-  const handlePriceChange = (selected) => {
-    setPriceRange(selected);
-  };
-
-  const handleRemoveFilter = (type) => {
-    if (type === "category") setCategory("");
-    if (type === "price") setPriceRange("");
-    if (type === "search") setSearchTerm("");
-  };
+  // const handleRemoveFilter = (type) => {
+  //   if (type === "category") setCategory("");
+  //   if (type === "price") setPriceRange("");
+  //   if (type === "search") setSearchTerm("");
+  // };
 
   const handleClearAll = () => {
-    setCategory("");
-    setPriceRange("");
-    setSearchTerm("");
+    setFilter({
+      searchTerm: "",
+      priceRange: "",
+      category: "",
+      page: 1,
+      limit: 9,
+    });
   };
 
   return (
@@ -65,8 +52,10 @@ export default function ProductFilter({
               type="text"
               placeholder="Bạn muốn học gì?"
               className="outline-none w-full text-base text-gray-700 placeholder:text-gray-400"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              value={filter.searchTerm}
+              onChange={(e) =>
+                setFilter((pre) => ({ ...pre, searchTerm: e.target.value }))
+              }
             />
           </div>
 
@@ -76,7 +65,10 @@ export default function ProductFilter({
               <DropdownProps
                 label="Loại"
                 items={["Lớp học trực tuyến", "Giáo trình", "Tài liệu"]}
-                onSelect={handleCategory}
+                item={filter.category}
+                onSelect={(value) => {
+                  setFilter((pre) => ({ ...pre, category: value }));
+                }}
               />
             </div>
             <div className="w-1/2 h-full">
@@ -84,7 +76,10 @@ export default function ProductFilter({
               <DropdownProps
                 label="Giá"
                 items={["< 500K", "500K – 1 triệu", "> 1 triệu"]}
-                onSelect={handlePriceChange}
+                item={filter.priceRange}
+                onSelect={(value) => {
+                  setFilter((pre) => ({ ...pre, priceRange: value }));
+                }}
               />
             </div>
           </div>
@@ -102,11 +97,13 @@ export default function ProductFilter({
             TÌM KIẾM HIỆN TẠI:
           </span>
 
-          {searchTerm && (
+          {filter.searchTerm && (
             <div className="bg-gray-100 px-3 py-1 rounded-full flex items-center gap-2">
-              {searchTerm}
+              {filter.searchTerm}
               <button
-                onClick={() => handleRemoveFilter("search")}
+                onClick={() => {
+                  setFilter((pre) => ({ ...pre, searchTerm: "" }));
+                }}
                 className="text-gray-500 hover:text-black"
               >
                 <X className="h-4 w-4" />
@@ -114,11 +111,13 @@ export default function ProductFilter({
             </div>
           )}
 
-          {category && (
+          {filter.category && (
             <div className="bg-gray-100 px-3 py-1 rounded-full flex items-center gap-2">
-              {category}
+              {filter.category}
               <button
-                onClick={() => handleRemoveFilter("category")}
+                onClick={() => {
+                  setFilter((pre) => ({ ...pre, category: "" }));
+                }}
                 className="text-gray-500 hover:text-black"
               >
                 <X className="h-4 w-4" />
@@ -126,11 +125,13 @@ export default function ProductFilter({
             </div>
           )}
 
-          {priceRange && (
+          {filter.priceRange && (
             <div className="bg-gray-100 px-3 py-1 rounded-full flex items-center gap-2">
-              {priceRange}
+              {filter.priceRange}
               <button
-                onClick={() => handleRemoveFilter("price")}
+                onClick={() => {
+                  setFilter((pre) => ({ ...pre, priceRange: "" }));
+                }}
                 className="text-gray-500 hover:text-black"
               >
                 <X className="h-4 w-4" />

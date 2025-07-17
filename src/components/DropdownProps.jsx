@@ -6,13 +6,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import { useState } from "react";
 
-export default function DropdownProps({ label, items, onSelect }) {
-  const [selected, setSelected] = useState("");
-
+export default function DropdownProps({ label, items, item, onSelect }) {
   const handleSelect = (item) => {
-    setSelected(item);
     if (onSelect) {
       onSelect(item);
     }
@@ -25,7 +21,7 @@ export default function DropdownProps({ label, items, onSelect }) {
           variant="outline"
           className="w-full h-full text-gray-700 bg-white border rounded px-4 py-2 md:px-8 md:py-4 flex items-center gap-1 text-sm md:text-base hover:bg-gray-100"
         >
-          {selected || label}
+          {item || label}
           <ChevronDown className="h-4 w-4 text-gray-500" />
         </Button>
       </DropdownMenuTrigger>

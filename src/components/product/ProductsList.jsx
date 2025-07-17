@@ -62,7 +62,7 @@ export default function ProductsList({ products, setProducts, loadingData }) {
       {loadingData ? (
         [1, 2, 3].map((index) => <SkeletonCard key={index} />)
       ) : products.length === 0 ? (
-        <p className="text-center mt-8 text-gray-600">
+        <p className="text-center mt-8 text-gray-600 col-span-3">
           Không tìm thấy sản phẩm nào phù hợp.
         </p>
       ) : (
