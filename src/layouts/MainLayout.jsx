@@ -1,3 +1,4 @@
+import { ChatPopover } from "../components/chatbox/ChatPopover";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -9,6 +10,7 @@ export default function MainLayout({ children }) {
       <main className="flex-grow min-h-screen w-screen">{children}</main>
 
       <Footer />
+      <ChatPopover />
     </div>
   );
 }
