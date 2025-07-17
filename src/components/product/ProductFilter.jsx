@@ -43,7 +43,7 @@ export default function ProductFilter({ filter, setFilter }) {
       </div>
 
       {/* Search + Filters */}
-      <div className="relative z-10 mt-12 flex justify-center">
+      <div className="relative z-10 mt-6 flex justify-center">
         <div className="grid md:grid-cols-6 sm:grid-cols-3 gap-3 md:gap-0 bg-white shadow-lg rounded-md p-4 items-center w-[90%] max-w-5xl">
           {/* Search Input */}
           <div className="md:col-span-3 sm:col-span-3 flex items-center border px-3 py-3 rounded w-full md:w-auto flex-1 h-full">
