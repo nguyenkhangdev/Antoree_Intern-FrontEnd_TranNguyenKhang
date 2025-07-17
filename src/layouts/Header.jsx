@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 
 import { Link } from "react-router-dom";
@@ -7,6 +5,7 @@ import logo from "../assets/logo_withtagline.svg";
 import SelectLanguage from "../components/header/SelectLanguage";
 import HoverDropdown from "../components/header/HoverUserMenu";
 import SiderBar from "../components/header/SiderBar";
+import UserDropdown from "../components/header/UserDropdown";
 
 export default function Header() {
   return (
@@ -20,30 +19,36 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex gap-6 ml-5">
-            <Link to="/" className="font-semibold hover:text-green-500">
-              Giáo viên
+            <Link to="/san-pham" className="font-semibold hover:text-green-500">
+              Sản phẩm
             </Link>
-            <Link to="/about" className="font-semibold hover:text-green-500">
-              Cộng đồng
+            <Link
+              to="/san-pham/yeu-thich"
+              className="font-semibold hover:text-green-500"
+            >
+              Yêu thích
             </Link>
-            <Link to="/contact" className="font-semibold hover:text-green-500">
-              Đánh giá của học viên
+            <Link
+              to="/san-pham/da-xem"
+              className="font-semibold hover:text-green-500"
+            >
+              Đã xem
             </Link>
             <HoverDropdown />
           </nav>
         </div>
 
-        {/* Call to Action */}
-        <div className="hidden lg:flex flex-row items-center gap-2">
-          <Button className="bg-orange-600">Học thử MIỄN PHÍ ngay</Button>
-          <Link to={"/sign-in"} className="font-bold hover:text-green-500">
-            Đăng nhập
-          </Link>
-          <SelectLanguage />
-        </div>
+        <div className="flex flex-row items-center">
+          {/* Call to Action */}
+          <div className="hidden lg:flex flex-row items-center gap-2">
+            <Button className="bg-orange-600">Học thử MIỄN PHÍ ngay</Button>
+            <SelectLanguage />
+          </div>
+          <UserDropdown />
 
-        {/* Mobile menu button */}
-        <SiderBar />
+          {/* Mobile menu button */}
+          <SiderBar />
+        </div>
       </div>
     </header>
   );

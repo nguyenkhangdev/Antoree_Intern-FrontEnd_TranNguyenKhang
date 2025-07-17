@@ -34,25 +34,25 @@ export default function SiderBar() {
             </div>
             <Separator />
             <Link
-              to="/"
+              to="/san-pham"
               onClick={() => setOpen(false)}
               className="font-semibold"
             >
-              Giáo viên
+              Sản phẩm
             </Link>
             <Link
-              to="/#"
+              to="/san-pham/yeu-thich"
               onClick={() => setOpen(false)}
               className="font-semibold"
             >
-              Cộng đồng
+              Yêu thích
             </Link>
             <Link
-              to="/#"
+              to="/san-pham/da-xem"
               onClick={() => setOpen(false)}
               className="font-semibold"
             >
-              Đánh giá của học viên
+              Đã xem
             </Link>
             <Link
               to="/#"
