@@ -1,9 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductFavoriteCard({ product, onFavorite }) {
+  const navigate = useNavigate();
+
+  //chuyen den trang chi tiết sản phẩm
+  const handleGotoCard = (id) => {
+    navigate(`/san-pham/${id}`);
+  };
+
   return (
-    <div className="flex flex-col md:flex-row items-start gap-4 border rounded-lg p-4 bg-white shadow hover:shadow-md w-full transition-transform hover:scale-105">
+    <div
+      onClick={() => handleGotoCard(product.id)}
+      className="flex flex-col md:flex-row items-start gap-4 border rounded-lg p-4 bg-white shadow cursor-pointer hover:shadow-md w-full transition-transform hover:scale-105"
+    >
       <img
         src={product.image}
         alt={product.name}
@@ -24,7 +35,13 @@ export default function ProductFavoriteCard({ product, onFavorite }) {
             </p>
           </div>
 
-          <Button variant="ghost" onClick={() => onFavorite(product)}>
+          <Button
+            variant="ghost"
+            onClick={(e) => {
+              e.stopPropagation(); //ngăn sự kiện click của thẻ cha đè lên
+              onFavorite(product);
+            }}
+          >
             <Heart
               className="text-red-500 h-6! w-6!"
               fill={product.favorite ? "red" : "none"}
